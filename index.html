@@ -1,0 +1,274 @@
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Детский сад "Василек"</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="css/tooplate_style.css" rel="stylesheet" type="text/css" />
+<link href="css/coda-slider.css" rel="stylesheet" type="text/css" charset="utf-8" />
+<script src="js/jquery-1.2.6.js" type="text/javascript"></script>
+<script src="js/jquery.scrollTo-1.3.3.js" type="text/javascript"></script>
+<script src="js/jquery.localscroll-1.2.5.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.serialScroll-1.2.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/coda-slider.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.easing.1.3.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/js/jquery-1.12.3.min.js"></script>
+</head>
+<body>	 
+<div id="slider">
+<div id="tooplate_wrapper">
+<div id="tooplate_sidebar">
+<div id="header">
+<h1><a href="#"><title="Детский сад Василек" /></a></h1>
+</div>    
+ <div id="menu">
+ <ul class="navigation">
+                    <li><a href="#home" class="selected menu_01">Главная</a></li>
+                    <li><a href="#about" class="menu_02">Новости</a></li>
+					 <li><a href="#sostav" class="menu_06">Педагогический состав</a></li>
+                    <li><a href="#services" class="menu_06">Для родителей</a></li>
+                    <li><a href="#gallery" class="menu_04">Галерея</a></li>
+                    <li><a href="#contact" class="menu_05">Связаться с нами</a></li>
+					<style>
+#calendar {
+  width: 100%;
+  font: monospace;
+  line-height: 1.2em;
+  font-size: 15px;
+  text-align: center;
+}
+#calendar thead tr:last-child {
+  font-size: small;
+  color: rgb(85, 85, 85);
+}
+#calendar thead tr:nth-child(1) td:nth-child(2) {
+  color: rgb(50, 50, 50);
+}
+#calendar thead tr:nth-child(1) td:nth-child(1):hover, #calendar thead tr:nth-child(1) td:nth-child(3):hover {
+  cursor: pointer;
+}
+#calendar tbody td {
+  color: rgb(44, 86, 122);
+}
+#calendar tbody td:nth-child(n+6), #calendar .holiday {
+  color: rgb(231, 140, 92);
+}
+#calendar tbody td.today {
+  background: rgb(220, 0, 0);
+  color: #fff;
+}
+</style>
+
+
+<div align=center>
+<div style="width:220px; border:1px solid #c0c0c0; padding:6px;">
+<table id="calendar"  border="0" cellspacing="0" cellpadding="1">
+  <thead>
+    <tr><td><b>‹</b><td colspan="5"><td><b>›</b>
+    <tr><td>Пн<td>Вт<td>Ср<td>Чт<td>Пт<td>Сб<td>Вс
+  </thead>
+  <tbody></tbody>
+</table>
+</div>
+</div>
+
+<script>
+function calendar(id, year, month) {
+var Dlast = new Date(year,month+1,0).getDate(),
+    D = new Date(year,month,Dlast),
+    DNlast = new Date(D.getFullYear(),D.getMonth(),Dlast).getDay(),
+    DNfirst = new Date(D.getFullYear(),D.getMonth(),1).getDay(),
+    calendar = '<tr>',
+    month=["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
+if (DNfirst != 0) {
+  for(var  i = 1; i < DNfirst; i++) calendar += '<td>';
+}else{
+  for(var  i = 0; i < 6; i++) calendar += '<td>';
+}
+for(var  i = 1; i <= Dlast; i++) {
+  if (i == new Date().getDate() && D.getFullYear() == new Date().getFullYear() && D.getMonth() == new Date().getMonth()) {
+    calendar += '<td class="today">' + i;
+  }else{
+    calendar += '<td>' + i;
+  }
+  if (new Date(D.getFullYear(),D.getMonth(),i).getDay() == 0) {
+    calendar += '<tr>';
+  }
+}
+for(var  i = DNlast; i < 7; i++) calendar += '<td> ';
+document.querySelector('#'+id+' tbody').innerHTML = calendar;
+document.querySelector('#'+id+' thead td:nth-child(2)').innerHTML = month[D.getMonth()] +' '+ D.getFullYear();
+document.querySelector('#'+id+' thead td:nth-child(2)').dataset.month = D.getMonth();
+document.querySelector('#'+id+' thead td:nth-child(2)').dataset.year = D.getFullYear();
+if (document.querySelectorAll('#'+id+' tbody tr').length < 6) {  // чтобы при перелистывании месяцев не "подпрыгивала" вся страница, добавляется ряд пустых клеток. Итог: всегда 6 строк для цифр
+    document.querySelector('#'+id+' tbody').innerHTML += '<tr><td> <td> <td> <td> <td> <td> <td> ';
+}
+}
+calendar("calendar", new Date().getFullYear(), new Date().getMonth());
+// переключатель минус месяц
+document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(1)').onclick = function() {
+  calendar("calendar", document.querySelector('#calendar thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead td:nth-child(2)').dataset.month)-1);
+}
+// переключатель плюс месяц
+document.querySelector('#calendar thead tr:nth-child(1) td:nth-child(3)').onclick = function() {
+  calendar("calendar", document.querySelector('#calendar thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar thead td:nth-child(2)').dataset.month)+1);
+}
+</script>
+					
+                </ul>
+            </div>
+		</div> <!-- end of sidebar -->
+    
+        <div id="content">
+            <div class="scroll">
+                <div class="scrollContainer">
+                
+                    <div class="panel" id="home">
+                    	<div class="content_section">
+                            <h2>ДЕТСКИЙ САД «ВАСИЛЕК» —</h2> 
+							<h2>СТРУКТУРНОЕ ПОДРАЗДЕЛЕНИЕ</h2> 
+							<h2>ГБОУ СОШ С. ЕКАТЕРИНОВКА.</h2>    
+                            
+                            <link rel="icon" type="image/vs.jpg" href="/vs.jpg"> 
+                            <img src="images/log2.jpg" alt="Image 01" class="image_wrapper image_fl" />
+                            
+                            <h3><p><em>Добро пожаловать на наш сайт!</em></p></h3>	
+                            
+                            <h3><p>На время действия самоизоляции наше дошкольное учреждение переходит на дистанционный режим обучения.</p></h3>
+                         </div>
+                         <div class="content_section last_section">  
+						 
+                    
+                                
+	                                
+								</ul>
+						</div>
+                    </div> <!-- end of home -->
+                    
+                   <div class="panel" id="about">
+<div class="content_section">
+<h1>Новости</h1>
+<h5>Чем занять ребенка во время домашней изоляции?</h5>
+
+<div class="panel" id="gallery1">
+
+
+<ul id="gallery_container1">
+
+<li><a href="https://daynotes.ru/podvignie_igri_dlya_detey_v_pomeshenii/">Поиграть в активные игры<img src="images/igra1.jpg" alt="Image 01" /></a></li>
+
+<li><a href="https://risuemdoma.com/video">Обучить рисовать<img src="images/ris1.jpg" alt="Image 02" /></a></li>
+
+<li><a href="https://mishka-knizhka.ru/skazki-dlay-detey/">Почитать книги<img src="images/book.jpg" alt="Image 03" /></a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLJjGmM6lHmBZc40XpBWsLYR0YYvqgu2bm">Устроить домашнюю дискотеку<img src="images/tnc.jpg" alt="Image 04" /></a></li>
+
+
+
+</ul>
+</div>
+</div>
+</div>
+<div class="panel" id="sostav">
+                        <h1>Педагогический состав</h1>
+            <h3><p><em>Заведующий</em></p></h3>	
+                            <h3><p>Семенкина Лариса Николаевна</p></h3>
+							
+                        <h3><p><em>Воспитатели</em></p></h3>	
+                            <h3><p>Корчагина Ольга Казимирона, 
+							Синева Наталья Игоревна, 
+							Клейменова Елена Петровна,
+							Шлычкова Светлана Валерьевна</p></h3>
+							
+                        <h3><p><em>Музыкальный руководитель </em></p></h3>	
+                            <h3><p>Мещерякова Наталья Викторовна</p></h3>
+							
+							<h3><p><em>Инструктор по физической культуре</em></p></h3>	
+                            <h3><p>Золотова Надежда Алексеевна</p></h3>
+							
+							<h3><p><em>Учитель-логопед</em></p></h3>	
+                            <h3><p>Шокова Светлана Эдуардовна</p></h3>
+							</div>
+
+                    <div class="panel" id="services">
+                        <h1>Уважаемые родители!</h1>
+                       
+                        <p>Предлагаем Вам ознакомиться с документами, которые необходимы для приема Вашего ребенка в деский сад</p>
+                        
+                        
+                        <div class="cleaner_h20"></div>
+                        <ul class="service_list">
+                            <li><a href="1.docx" class="service_one">*Документы для приема ребенка в садовую возрастную группу</a></li>
+                            <li><a href="2.docx" class="service_two">*Получение льгот на прием ребенка в сад</a></li>
+                            <li><a href="3.docx" class="service_three">*Список врачей для получения медицинской справки по форме № 026/у</a></li>
+                            <li><a href="4.docx" class="service_four">*Необходимый перечень обследований и анализов для медицинской справки</a></li> 
+                            
+                        </ul>
+                    </div>
+                
+                    <div class="panel" id="gallery">
+                        <h1>Галерея</h1>
+                        
+                        <ul id="gallery_container">
+                            <li><a href="images/gallery/1.jpg"><img src="images/gallery/11.jpg"  alt="Image 01" /></a></li>
+                            <li><a href="images/gallery/2.jpg"><img src="images/gallery/22.jpg" alt="Image 02" /></a></li>
+                            <li><a href="images/gallery/6.jpg"><img src="images/gallery/66.jpg" alt="Image 03" /></a></li>
+                            <li><a href="images/gallery/3.jpg"><img src="images/gallery/33.jpg" alt="Image 04" /></a></li>
+                            <li><a href="images/gallery/4.jpg"><img src="images/gallery/44.jpg" alt="Image 05" /></a></li>
+                            <li><a href="images/gallery/5.jpg"><img src="images/gallery/55.jpg" alt="Image 06" /></a></li>
+						</ul>
+ 
+                    </div>
+                
+                    <div class="panel" id="contact">
+                        <h1>Контакты</h1>
+            <h3><p><em>Юридический и фактический адрес</em></p></h3>	
+                            <h3><p>446232, Самарская обл., Безенчукский р-н, с. Екатериновка, ул.Советская, 8</p></h3>
+							
+                        <h3><p><em>Заведующий</em></p></h3>	
+                            <h3><p>Семенкина Лариса Николаевна</p></h3>
+							
+                        <h3><p><em>Режим работы</em></p></h3>	
+                            <h3><p>Понедельник-пятница 7:00-17:30</p></h3>
+							
+							<h3><p><em>Телефон</em></p></h3>	
+                            <h3><p>+7 (846) 763 14-32</p></h3>
+							
+						
+                        <div class="cleaner_h10"></div>
+                                                
+                        <div class="col_380 float_l">
+                            <div id="contact_form">
+                                <form method="post" name="contact" action="#">
+					
+									
+								</form>
+                            </div>
+                        </div>
+                        
+                        <div class="col_380 float_r">
+                        
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- end of scroll -->
+        </div>
+        <div class="cleaner"></div>
+    </div> <!-- end of content -->
+    <div class="cleaner"></div>
+</div>
+
+<div id="footer">
+    
+        <div id="social_box">
+            <a href="https://www.gosuslugi.ru/"><img src="images/gos1.jpg" alt="facebook" /></a>
+            
+        </div>
+    
+        © Детский сад "Василек", 2020
+		
+</div>
+
+</body>
+</html>
